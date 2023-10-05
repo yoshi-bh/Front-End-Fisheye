@@ -26,6 +26,15 @@
 					Contactez-moi
 				</button>
 			</div>
+			<form>
+				<label for="filters">Trier par</label>
+				<select name="filters" id="filters">
+          <option value="popular">Popularité</option>
+          <option value="date">Date</option>
+          <option value="title">Titre</option>
+        </select>
+			</form>
+
 		</main>
 		<div id="contact_modal">
 			<div class="modal">
@@ -42,6 +51,7 @@
 				</form>
 			</div>
 		</div>
+		<script src="scripts/templates/photographerT.js"></script>
 		<script src="/scripts/pages/photographer.js"></script>
 		<script src="/scripts/utils/contactForm.js"></script>
 	</body>
