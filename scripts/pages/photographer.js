@@ -1,3 +1,5 @@
+import photographerTemplate from "../templates/photographerT";
+
 async function getData() {
 	// Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
 	// mais il sera à remplacer avec une requête sur le fichier JSON en utilisant "fetch".
@@ -29,7 +31,7 @@ async function displayMedia(media, photographerID) {
 		// call to pattern factory here
 		// console.log(media.image);
 		if (media.image.includes(".jpg")) {
-      const article = document.createElement("article");
+			const article = document.createElement("article");
 			const img = document.createElement("img");
 			const h2 = document.createElement("h2");
 			h2.textContent = media.title;
@@ -40,7 +42,7 @@ async function displayMedia(media, photographerID) {
 			article.appendChild(img);
 			article.appendChild(h2);
 			article.appendChild(p);
-      mediaGrid.appendChild(article);
+			mediaGrid.appendChild(article);
 		}
 	}
 }
