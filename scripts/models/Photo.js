@@ -1,4 +1,4 @@
-class Photo {
+class Image {
 	constructor(data) {
 		this._id = data.id;
 		this._photographerId = data.photographerId;
@@ -43,4 +43,4 @@ class Photo {
 	// }
 }
 
-export default Photo;
+export default Image;

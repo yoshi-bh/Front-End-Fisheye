@@ -1,11 +1,11 @@
-import Photo from "../models/Photo.js";
-import Photo from "../models/Photo.js";
+import Image from "../models/Photo.js";
+import Video from "../models/Video.js";
 
 class MediaFactory {
 	constructor(data) {
-		// Si le type correspond à une photo, alors on instancie une photo
+		// Si le type correspond à une image, alors on instancie une image
 		if (data.hasOwnProperty("image")) {
-			return new Photo(data);
+			return new Image(data);
 			// Sinon on instancie une video
 		} else if (data.hasOwnProperty("video")) {
 			return new Video(data);
