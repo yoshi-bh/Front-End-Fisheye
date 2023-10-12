@@ -67,6 +67,17 @@
 				</form>
 			</div>
 		</div>
+		<div id="lightbox_modal">
+			<div class="modal">
+				<img class="close-btn" src="assets/icons/close-red.svg" onclick="closeLightbox()" />
+				<img class="prev-btn" src="assets/icons/arrow-left.svg" onclick="prevMedia()" />
+				<img class="next-btn" src="assets/icons/arrow-right.svg" onclick="nextMedia()" />
+				<div class="lightbox-content">
+					<img src="./assets/images/Mimi/Animals_Rainbow.jpg" alt="">
+					<h2>Arc-en-ciel</h2>
+				</div>
+			</div>
+		</div>
 		<script src="scripts/models/Image.js"></script>
 		<script src="scripts/models/Video.js"></script>
 		<script src="scripts/factories/MediaFactory.js"></script>
@@ -74,5 +85,6 @@
 		<script src="scripts/templates/photographerT.js"></script>
 		<script src="/scripts/pages/photographer.js"></script>
 		<script src="/scripts/utils/contactForm.js"></script>
+		<script src="/scripts/utils/lightbox.js"></script>
 	</body>
 </html>

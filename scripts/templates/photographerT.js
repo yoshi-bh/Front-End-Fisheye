@@ -42,7 +42,7 @@ function photographerTemplate(data) {
 		const p = document.createElement("p");
 		p.textContent = tagline;
 
-		const nbLikes = 666;
+		const nbLikes = 420;
 		const pCard = document.createElement("div");
 		pCard.className = "price-card";
 		pCard.innerHTML = `

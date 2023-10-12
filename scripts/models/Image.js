@@ -6,7 +6,6 @@ class Image {
 		this._title = data.title;
 		this._image = data.image;
 		this._likes = data.likes;
-		this._isLiked = false;
 		this._date = data.date;
 		this._price = data.price;
 	}
@@ -42,13 +41,8 @@ class Image {
 		return this._likes;
 	}
 
-	likeMedia() {
-		if (!this._isLiked) {
-			this._likes++;
-		} else {
-			this._likes--;
-			this._isLiked = false;
-		}
+	set likes(newLikes) {
+		this._likes = newLikes;
 	}
 
 	// get date() {

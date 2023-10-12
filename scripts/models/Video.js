@@ -6,7 +6,6 @@ class Video {
 		this._title = data.title;
 		this._video = data.video;
 		this._likes = data.likes;
-		this._isLiked = false;
 		this._date = data.date;
 		this._price = data.price;
 	}
@@ -46,14 +45,8 @@ class Video {
 		return this._likes;
 	}
 
-	likeMedia() {
-		if (!this._isLiked) {
-			this._likes++;
-			this._isLiked = true;
-		} else {
-			this._likes--;
-			this._isLiked = false;
-		}
+	set likes(newLikes) {
+		this._likes = newLikes;
 	}
 
 	// get date() {

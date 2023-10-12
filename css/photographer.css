@@ -1,4 +1,5 @@
-#contact_modal {
+#contact_modal,
+#lightbox_modal {
 	display: none;
 }
 
@@ -147,9 +148,6 @@ main {
 }
 
 .modal {
-	position: fixed;
-	top: 40px;
-	left: calc(50% - 360px);
 	border-radius: 5px;
 	background-color: #db8876;
 	width: 650px;
@@ -181,7 +179,68 @@ main {
 	top: 0;
 	height: 100vh;
 	width: 100%;
-	background: #C4C4C466;
+	background: #c4c4c466;
+}
+
+#contact_modal .modal {
+	position: fixed;
+	top: 40px;
+	left: calc(50% - 360px);
+}
+
+#lightbox_modal {
+	position: fixed;
+	top: 0;
+	height: 100vh;
+	width: 100%;
+	background-color: white;
+}
+
+#lightbox_modal .modal {
+	box-sizing: border-box;
+	margin-top: 5vh;
+	padding: 0;
+	position: relative;
+	width: 70%;
+	height: 90%;
+	background-color: white;
+	/* border: 3px solid purple; */
+}
+
+#lightbox_modal .close-btn {
+	position: absolute;
+	top: 20px;
+	right: 20px;
+}
+
+#lightbox_modal .prev-btn {
+	position: absolute;
+	top: calc(50% - 24px);
+	left: 30px;
+}
+
+#lightbox_modal .next-btn {
+	position: absolute;
+	top: calc(50% - 24px);
+	right: 30px;
+}
+
+.lightbox-content {
+	margin-top: 1.5%;
+	width: 85vh;
+	height: 97%;
+}
+
+.lightbox-content img {
+	width: 100%;
+	height: 100%;
+	object-fit: cover;
+}
+
+.lightbox-content h2 {
+	margin: 0;
+	font-size: 24px;
+	color: #901c1c;
 }
 
 form {
