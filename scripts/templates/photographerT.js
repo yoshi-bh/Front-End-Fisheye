@@ -42,13 +42,21 @@ function photographerTemplate(data) {
 		const p = document.createElement("p");
 		p.textContent = tagline;
 
+		const nbLikes = 666;
+		const pCard = document.createElement("div");
+		pCard.className = "price-card";
+		pCard.innerHTML = `
+			<p>${nbLikes} <i class="fa fa-heart" aria-label="likes"></i></p>
+			<p>${price}€ / jour</p>
+		`;
+
 		div.appendChild(h1);
 		div.appendChild(h2);
 		div.appendChild(p);
 
-		return { container: div, img: img };
+		return { container: div, img: img, priceCard: pCard };
 	}
 	return { name, picture, getUserCardDOM, getUserHeaderDOM };
 }
 
-export default photographerTemplate;
+// export default photographerTemplate;

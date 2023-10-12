@@ -1,4 +1,4 @@
-import photographerTemplate from "../templates/photographerT";
+// import photographerTemplate from "../templates/photographerT";
 
 async function getPhotographers() {
 	// Ceci est un exemple de données pour avoir un affichage de photographes de test dès le démarrage du projet,
