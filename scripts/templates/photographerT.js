@@ -42,11 +42,10 @@ function photographerTemplate(data) {
 		const p = document.createElement("p");
 		p.textContent = tagline;
 
-		const nbLikes = 420;
 		const pCard = document.createElement("div");
 		pCard.className = "price-card";
 		pCard.innerHTML = `
-			<p>${nbLikes} <i class="fa fa-heart" aria-label="likes"></i></p>
+			<p id="totalLikes">0000 <i class="fa fa-heart" aria-label="likes"></i></p>
 			<p>${price}€ / jour</p>
 		`;
 
