@@ -9,6 +9,7 @@ function photographerTemplate(data) {
 		const article = document.createElement("article");
 		const img = document.createElement("img");
 		img.setAttribute("src", picture);
+		img.setAttribute("alt", "");
 		const h2 = document.createElement("h2");
 		h2.textContent = name;
 		const h3 = document.createElement("h3");
