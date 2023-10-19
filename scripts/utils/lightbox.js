@@ -25,11 +25,12 @@ function displayLightbox(mCard, mCards) {
 	// if (!lightbox.hasAttribute("key-listener")) {
 	// 	lightbox.setAttribute("key-listener", true);
 	document.addEventListener("keydown", (e) => {
-		console.log("Keydown");
 		const key = e.key;
-		if (key === "ArrowLeft") {
+		if (e.key === "Escape") {
+			closeLightbox();
+		} else if (e.key === "ArrowLeft") {
 			displayLightbox(mCards[prevCardIndex], mCards);
-		} else if (key === "ArrowRight") {
+		} else if (e.key === "ArrowRight") {
 			displayLightbox(mCards[nextCardIndex], mCards);
 		}
 	});
