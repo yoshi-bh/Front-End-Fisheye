@@ -9,11 +9,7 @@ function displayLightbox(mCard, mCards) {
 	const lightbox = document.querySelector("#lightbox_modal");
 	const prevCardIndex = clamp(mCards.indexOf(mCard) - 1, 0, mCards.length - 1);
 	const nextCardIndex = clamp(mCards.indexOf(mCard) + 1, 0, mCards.length - 1);
-	// console.log(displayedMedia);
-	// console.log(mCard);
-	// console.log(prevCard);
 
-	// keeps adding new event listeners
 	prevBtn.addEventListener("click", () =>
 		displayLightbox(mCards[prevCardIndex], mCards)
 	);
@@ -21,9 +17,6 @@ function displayLightbox(mCard, mCards) {
 		displayLightbox(mCards[nextCardIndex], mCards)
 	);
 
-	// keeps adding new event listeners
-	// if (!lightbox.hasAttribute("key-listener")) {
-	// 	lightbox.setAttribute("key-listener", true);
 	document.addEventListener("keydown", (e) => {
 		const key = e.key;
 		if (e.key === "Escape") {
@@ -34,7 +27,6 @@ function displayLightbox(mCard, mCards) {
 			displayLightbox(mCards[nextCardIndex], mCards);
 		}
 	});
-	// }
 
 	const modal = document.getElementById("lightbox_modal");
 	const imgContainer = document.querySelector(".lightbox-content");

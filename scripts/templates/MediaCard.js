@@ -35,9 +35,6 @@ class MediaCard {
       `;
 
 		wrapper.innerHTML = mediaCard;
-		// wrapper.querySelector("i").addEventListener("click", this.likeMedia);
 		return wrapper;
 	}
 }
-
-// export default MediaCard;

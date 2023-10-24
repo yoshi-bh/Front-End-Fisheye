@@ -46,9 +46,9 @@ function sendForm(event) {
 	event.preventDefault();
 
 	const form = document.querySelector("#contact");
-	// form.submit();s
-	// console.log(new FormData(form).get("fname"));
 	console.log(new FormData(form));
+	// console.log(new FormData(form).get("fname"));
+	// form.submit();
 	form.reset();
 	closeModal();
 	return false;
