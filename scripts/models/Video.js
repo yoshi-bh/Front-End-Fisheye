@@ -21,7 +21,16 @@ class Video {
 	get displayedMedia() {
 		let media = `
       <video>
-        <source alt="" src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
+        <source alt="${this._title}" src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
+      </video>
+    `;
+		return media;
+	}
+
+	get lightboxDisplayedMedia() {
+		let media = `
+      <video controls>
+        <source alt="${this._title}" src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
       </video>
     `;
 		return media;

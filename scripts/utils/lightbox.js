@@ -3,34 +3,43 @@ function clamp(val, min, max) {
 	return val > max ? min : val < min ? max : val;
 }
 
+function updateLightboxContent(mCard) {
+	const imgContainer = document.querySelector(".lightbox-content");
+	imgContainer.innerHTML =
+		mCard._media.lightboxDisplayedMedia + `<h2>${mCard._media.title}</h2>`;
+	imgContainer.setAttribute("data-id", mCard._media.id);
+}
+
+function newMedia(mCards, offset) {
+	const id = parseInt(
+		document.querySelector(".lightbox-content").getAttribute("data-id")
+	);
+	const index = mCards.findIndex((mCard) => parseInt(mCard._media.id) === id);
+	const newCardIndex = clamp(index + offset, 0, mCards.length - 1);
+
+	updateLightboxContent(mCards[newCardIndex]);
+}
+
 function displayLightbox(mCard, mCards) {
 	const prevBtn = document.querySelector(".prev-btn");
 	const nextBtn = document.querySelector(".next-btn");
-	const lightbox = document.querySelector("#lightbox_modal");
-	const prevCardIndex = clamp(mCards.indexOf(mCard) - 1, 0, mCards.length - 1);
-	const nextCardIndex = clamp(mCards.indexOf(mCard) + 1, 0, mCards.length - 1);
 
-	prevBtn.addEventListener("click", () =>
-		displayLightbox(mCards[prevCardIndex], mCards)
-	);
-	nextBtn.addEventListener("click", () =>
-		displayLightbox(mCards[nextCardIndex], mCards)
-	);
+	prevBtn.addEventListener("click", () => newMedia(mCards, -1));
+	nextBtn.addEventListener("click", () => newMedia(mCards, +1));
 
 	document.addEventListener("keydown", (e) => {
-		const key = e.key;
 		if (e.key === "Escape") {
 			closeLightbox();
 		} else if (e.key === "ArrowLeft") {
-			displayLightbox(mCards[prevCardIndex], mCards);
+			newMedia(mCards, -1);
 		} else if (e.key === "ArrowRight") {
-			displayLightbox(mCards[nextCardIndex], mCards);
+			newMedia(mCards, +1);
 		}
 	});
 
+	updateLightboxContent(mCard);
+
 	const modal = document.getElementById("lightbox_modal");
-	const imgContainer = document.querySelector(".lightbox-content");
-	imgContainer.innerHTML = mCard._media.displayedMedia;
 	modal.style.display = "block";
 }
 

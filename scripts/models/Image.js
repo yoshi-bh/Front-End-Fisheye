@@ -19,7 +19,12 @@ class Image {
 	}
 
 	get displayedMedia() {
-		let media = `<img alt="" src="./assets/images/${this._photographerName}/${this._image}"/>`;
+		let media = `<img alt="${this._title}" src="./assets/images/${this._photographerName}/${this._image}"/>`;
+		return media;
+	}
+
+	get lightboxDisplayedMedia() {
+		let media = `<img alt="${this._title}" src="./assets/images/${this._photographerName}/${this._image}"/>`;
 		return media;
 	}
 

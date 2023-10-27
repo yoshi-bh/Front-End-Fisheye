@@ -45,9 +45,12 @@ function likingMedia(mCard, mediaCard) {
 	newMediaCard
 		.querySelector(".media-thumbnail")
 		.replaceWith(mediaCard.querySelector(".media-thumbnail"));
-	newMediaCard
-		.querySelector("i")
-		.addEventListener("click", () => likingMedia(mCard, newMediaCard));
+
+	const likeIcon = newMediaCard.querySelector("i");
+	likeIcon.addEventListener("click", () => likingMedia(mCard, newMediaCard));
+	likeIcon.addEventListener("keydown", (e) => {
+		if (e.key === "Enter") likingMedia(mCard, newMediaCard);
+	});
 	mediaGrid.replaceChild(newMediaCard, mediaCard);
 }
 
@@ -68,17 +71,21 @@ function displayMedias(displayedMedias, photographers, photographerID) {
 
 	for (let i = 0; i < mCardsArray.length; i++) {
 		const mediaCardElem = mCardsArray[i].createMediaCard();
+		const mediaThumbnail = mediaCardElem.querySelector(".media-thumbnail");
+		const likeIcon = mediaCardElem.querySelector("i");
 
-		mediaCardElem
-			.querySelector(".media-thumbnail")
-			.addEventListener("click", () =>
-				displayLightbox(mCardsArray[i], mCardsArray)
-			);
-		mediaCardElem
-			.querySelector("i")
-			.addEventListener("click", () =>
-				likingMedia(mCardsArray[i], mediaCardElem)
-			);
+		likeIcon.addEventListener("click", () =>
+			likingMedia(mCardsArray[i], mediaCardElem)
+		);
+		likeIcon.addEventListener("keydown", (e) => {
+			if (e.key === "Enter") likingMedia(mCardsArray[i], mediaCardElem);
+		});
+		mediaThumbnail.addEventListener("click", () =>
+			displayLightbox(mCardsArray[i], mCardsArray)
+		);
+		mediaThumbnail.addEventListener("keydown", (e) => {
+			if (e.key === "Enter") displayLightbox(mCardsArray[i], mCardsArray);
+		});
 		mediaGrid.appendChild(mediaCardElem);
 	}
 }

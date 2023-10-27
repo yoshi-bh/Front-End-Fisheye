@@ -4,6 +4,10 @@ class MediaCard {
 		this._isLiked = false;
 	}
 
+	get media() {
+		return this._media;
+	}
+
 	get isLiked() {
 		return this._isLiked;
 	}
@@ -30,7 +34,7 @@ class MediaCard {
           </div>
           <div class="media-text">
           	<h3>${this._media.title}</h3>
-            <p>${this._media.likes} <i class="fa fa-heart clickable" aria-label="likes"></i></p>
+            <p>${this._media.likes} <i class="fa fa-heart clickable" aria-label="likes" tabindex=0></i></p>
           </div>
       `;
 
