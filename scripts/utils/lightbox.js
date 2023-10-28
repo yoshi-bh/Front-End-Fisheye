@@ -11,6 +11,7 @@ function updateLightboxContent(mCard) {
 }
 
 function newMedia(mCards, offset) {
+	console.log(mCards);
 	const id = parseInt(
 		document.querySelector(".lightbox-content").getAttribute("data-id")
 	);
@@ -24,18 +25,21 @@ function displayLightbox(mCard, mCards) {
 	const prevBtn = document.querySelector(".prev-btn");
 	const nextBtn = document.querySelector(".next-btn");
 
-	prevBtn.addEventListener("click", () => newMedia(mCards, -1));
-	nextBtn.addEventListener("click", () => newMedia(mCards, +1));
+	prevBtn.addEventListener("click", (prevFnct = () => newMedia(mCards, -1)));
+	nextBtn.addEventListener("click", (nextFnct = () => newMedia(mCards, +1)));
 
-	document.addEventListener("keydown", (e) => {
-		if (e.key === "Escape") {
-			closeLightbox();
-		} else if (e.key === "ArrowLeft") {
-			newMedia(mCards, -1);
-		} else if (e.key === "ArrowRight") {
-			newMedia(mCards, +1);
-		}
-	});
+	document.addEventListener(
+		"keydown",
+		(keyFnct = (e) => {
+			if (e.key === "Escape") {
+				closeLightbox(mCards);
+			} else if (e.key === "ArrowLeft") {
+				newMedia(mCards, -1);
+			} else if (e.key === "ArrowRight") {
+				newMedia(mCards, +1);
+			}
+		})
+	);
 
 	updateLightboxContent(mCard);
 
@@ -43,7 +47,15 @@ function displayLightbox(mCard, mCards) {
 	modal.style.display = "block";
 }
 
-function closeLightbox() {
+function closeLightbox(mCards) {
 	const modal = document.getElementById("lightbox_modal");
+	const prevBtn = document.querySelector(".prev-btn");
+	const nextBtn = document.querySelector(".next-btn");
+
+	console.log("removing EventListener");
+
+	prevBtn.removeEventListener("click", prevFnct);
+	nextBtn.removeEventListener("click", nextFnct);
+	document.removeEventListener("keydown", keyFnct);
 	modal.style.display = "none";
 }
