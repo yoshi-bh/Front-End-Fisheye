@@ -20,8 +20,8 @@ class Video {
 
 	get displayedMedia() {
 		let media = `
-      <video>
-        <source alt="${this._title}" src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
+      <video aria-label="${this._title}">
+        <source src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
       </video>
     `;
 		return media;
@@ -29,8 +29,8 @@ class Video {
 
 	get lightboxDisplayedMedia() {
 		let media = `
-      <video controls>
-        <source alt="${this._title}" src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
+      <video aria-label="${this._title}" controls>
+        <source src="./assets/images/${this._photographerName}/${this._video}" type="video/mp4">
       </video>
     `;
 		return media;

@@ -35,7 +35,7 @@ function likingMedia(mCard, mediaCard) {
 	// Update new total likes for photographer
 	document.querySelector(
 		"#totalLikes"
-	).innerHTML = `<p id="totalLikes">${totalLikes} <i class="fa fa-heart" aria-label="likes"></i></p>`;
+	).innerHTML = `${totalLikes} <i class="fa fa-heart" aria-label="likes"></i>`;
 
 	// Create new media card and replace the old one
 	const mediaGrid = document.querySelector(".media-grid");
@@ -138,7 +138,7 @@ async function init() {
 		);
 	document.querySelector(
 		"#totalLikes"
-	).innerHTML = `<p id="totalLikes">${totalLikes} <i class="fa fa-heart" aria-label="likes"></i></p>`;
+	).innerHTML = `${totalLikes}<i class="fa fa-heart" aria-label="likes"></i>`;
 }
 
 init();
